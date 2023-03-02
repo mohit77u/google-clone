@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-primary-dark py-7">
+    <div class="min-h-screen bg-primary-dark py-4">
         <!-- top right links -->
         <div class="top-right flex flex-wrap items-center px-10 md:pl-24 sticky top-0 left-0 py-3">
             <div class="lg:w-1/12 w-4/12">
@@ -43,7 +43,7 @@
         </div>
 
         <!-- main content top -->
-        <div class="top-right flex flex-wrap items-center px-10 md:pl-24 border-b border-gray-700 my-5">
+        <div class="top-right flex flex-wrap items-center px-10 md:pl-24 border-b border-gray-700 mb-5 mt-2">
             <div class="lg:w-1/12 w-4/12"></div>
             <!-- main centered content buttons -->
             <div class="lg:w-5/12 w-7/12">
@@ -89,7 +89,7 @@
         </div>
 
          <!-- main content search results -->
-         <div class="top-right flex flex-wrap items-center px-10 md:pl-24 my-5 mt-10">
+         <div class="top-right flex flex-wrap items-center px-10 md:pl-24 my-5">
             <div class="lg:w-1/12 w-4/12"></div>
 
             <!-- main centered content -->
@@ -97,7 +97,8 @@
                 
                 <!-- search content -->
                 <div class="main-search">
-                    <div class="search-content">
+                    <p class="text-gray-400 text-sm">About {{ searchData?.searchInformation?.formattedTotalResults }} results ({{ searchData?.searchInformation?.formattedSearchTime }} seconds)</p>
+                    <div class="search-content mt-7">
                         <div class="single-search mb-12" v-for="(search, index) in searchData.items" :key="index">
                             <!-- top search -->
                             <div class="top">
@@ -146,7 +147,7 @@ export default {
         },
         // get search content call api
         GetContent(){
-            axios.get('https://www.googleapis.com/customsearch/v1?key=AIzaSyCME34vDu8JSPNQzO06_EYLiSGf5eChTCI&cx=017576662512468239146:omuauf_lfve&q=' + this.$route.query.query)
+            axios.get('https://www.googleapis.com/customsearch/v1?key=AIzaSyCME34vDu8JSPNQzO06_EYLiSGf5eChTCI&cx=35226380b99af4ef4&q=' + this.$route.query.query)
                 .then((response) => {
                     this.searchData = response.data
                 }).catch((err) => {
